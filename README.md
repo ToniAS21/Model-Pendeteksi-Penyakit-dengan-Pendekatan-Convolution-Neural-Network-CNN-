@@ -40,9 +40,8 @@ Penelitian yang telah dilakukan berkaitan dengan Computer Vision yang memanfaatk
 
 Pada penelitian ini kami melakukan enam tahapan dalam menghasilkan model yaitu persiapan dataset, eksplorasi dataset, data preprocessing, training, validation dan testing awal. Pada tahapan pertama dilakukan proses pengambilan dataset dari platform Kaggle yang berjudul Large COVID-19 CT Scan Slice Dataset, dengan tautan berikut Large COVID-19 CT scan slice dataset | Kaggle. Dataset ini dipilih karena memiliki kredibilitas yang tinggi, terlihat mulai dari akun yang membagikan dataset adalah Maeda Maftouni, seorang Ph.D candidates di Virgin Tech. Kemudian dataset ini memiliki informasi yang sangat jelas seperti penjelasan isi dataset dan sumber perolehan dataset yang berasal dari 7 dataset publik yang semuanya memiliki sitasi yang jelas. Selain itu, kami menyadari keterbatasan dataset dalam jumlah besar yang kredibel, akuntabel dan mudah diakses di Indonesia. Melalui pertimbangan keakuratan dan aksesibilitas kami memutuskan menggunakan dataset dari Kaggle dalam membangun model Deep Learning. Pada dataset ini terdiri dari 7,593 gambar Covid-19 dari 466 pasien, 6,893 gambar normal dari 604 pasien dan 2,618 gambar CAP dari 60 pasien. Pada penelitian ini kami tidak menggunakan keseluruhan dataset karena keterbatasan komputasi yang dimiliki, seperti yang diketahui dalam proses training model data gambar membutuhkan prosesor dan GPU mumpuni sehingga kami lebih berusaha mengoptimalkan komputasi yang dimiliki. Kemudian disebabkan kami rasa sangat cukup 1600 data atau 4800 data secara total dalam pelatihan model untuk menghasilkan model yang baik, hal ini didasarkan pada pengalaman kami sebelumnya dalam membagun model data gambar yang hanya menggunakan total 251 data dan sudah dapat menghasilkan model yang baik. Oleh karena itu, kami berusaha menyelaraskan realitas komputasi dan mempertimbangakan kualitas model sehingga diputuskan tidak menggunakan keseluruhan data. Namun, kami menyadari jumlah data yang besar dan berkualitas akan memberikan hasil model yang lebih baik sehingga kami ingin terus meningkatkan kuantitas data pada proses pengembangan lebih lanjut. Pada keseluruhan proses pembangunan model ini, kami menggunakan sebanyak 2100 data untuk masing-masing kategori. Kategori atau disebut kelas ini terdiri dari Covid-19, Normal dan CAP. Setiap kategori ini terbagi lagi menjadi 1.600 data untuk training, 400 data untuk validasi dan 100 data untuk testing awal.
 
-**Contoh Dataset**
-
-![Data](Contoh_dataset.png)
+**Contoh Dataset :**
+![Data](asset/Contoh_dataset.png)
 
 
 ## Kesimpulan
@@ -50,13 +49,13 @@ Pada penelitian ini kami melakukan enam tahapan dalam menghasilkan model yaitu p
 **Gambaran Hasil Uji Coba Prediksi :**
 
 ### 1. Label Community-Acquired Pneumonia (CAP)
-![CAP](asset\Label_CAP.png)
+![CAP](asset/Label_CAP.png)
 
 ### 2. Label Covid-19
-![CAP](asset\Label_Covid-19.png)
+![CAP](asset/Label_Covid-19.png)
 
 ### 3. Label Normal
-![CAP](asset\Label_Normal.png)
+![CAP](asset/Label_Normal.png)
 
 
 Proyek ini dibuat melalui berbagai tahapan mulai mempersiapkan dataset hingga mencoba memprediksi gambar. Selain itu, proyek ini menggunakan *Transfer Learning* untuk meningkatkan performa model *Machine Learning*, hal ini dapat dilihat dengan membandingkan plot performa sebelum dan sesudah *Transfer Learning*. Pada tahap terakhir kita juga mencoba memprediksi tiga gambar dari setiap kelas yang akan diprediksi. Secara keseluruhan model yang dihasilkan sudah baik, seperti pada hasil akhir akurasi latihan dan validasi yang masing-masing 95%+ dan 92%+ meskipun terdapat perbedaan akurasi latihan dan validasi. Jadi, melalui model ini dapat menjadi tambahan informasi selain pemeriksaan langsung di laboratorium sehingga dapat menambah efektivitas dan efisiensi pendeteksian penyakit pasien. Namun, tetap mesti dilakukan pemantauan berkala dan pengembangan lebih lanjut karena model tidak bisa benar 100%. 

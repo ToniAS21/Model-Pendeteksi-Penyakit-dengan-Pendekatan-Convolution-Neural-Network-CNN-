@@ -1,0 +1,63 @@
+# Model Pendeteksi Penyakit dengan Pendekatan Convolution Neural Network (CNN)
+
+## Latar Belakang
+Pada tanggal 31 Desember 2019 yang lalu, Tiongkok melaporkan kasus pneumonia yang disebabkan virus misterius dan diberi nama Novel Coronavirus. Diyakini virus tersebut berasal dari pasar makanan laut di Wuhan, Hubei, Tiongkok yang bermutasi dan menjangkit manusia. Penularannya merebak dan cepat, sehingga virus RNA rantai tunggal ini pun tidak lagi hanya ditemukan di Tiongkok, melainkan berbagai belahaan dunia melaporkan kasus-kasus pertamanya. World Health Organization (WHO) pada 11 Februari 2020 mengubah nama Novel Coronavirus menjadi Severe Acute Respiratory Syndrome Coronavirus-2 (SARS-CoV-2) dan penyakitnya sebagai Coronavirus Disease 2019 (COVID-19). Pada 11 Maret 2020, WHO mengumumkan bahwa COVID-19 sudah menjadi pandemi di dunia.
+
+Di Indonesia, sejak kasus pertama diumumkan ke publik pada 2 Maret 2020, berbagai macam kebijakan dikerahkan. Diberlakukannya Pembatasan Sosial Berskala Besar (PSBB) hingga Gerakan New Normal untuk mencegah dan mengendalikan wabah COVID-19 di bumi pertiwi seraya mengembalikan aspek kehidupan masyarakat yang sempat tertunda. Masyarakat diberikan edukasi untuk meningkatkan kesadaran akan sanitasi dengan protokol: menjaga jarak, menggunakan masker, mencuci tangan, menjauhi kerumunan, dan membatasi mobilitas. Vaksin pun dikembangkan, disosialisasikan, hingga diwajibkan agar persentase kematian akibat COVID-19 dapat menurun. Hal tersebut tidak serta merta menurunkan angka kematian secara drastis. Akibat proses penularannya yang mudah, hanya dengan droplet yang ada di udara dan yang mendiami benda, SARS-CoV-2 menjangkit masyarakat dengan cepat ditambah proses inkubasinya yang hanya dalam 1-14 hari.
+
+Untuk menentukan apakah seseorang terjangkit COVID-19 atau tidak, dilakukan tatalaksana dengan mengidentifikasi apakah pasien tersebut merupakan pasien suspek, probable, atau terkonfirmasi COVID-19. Pemeriksaannya dapat dilakukan dengan:
+1.	Mengetahui kontak terakhir dengan penderita terkonfirmasi COVID-19.
+2.	Mengamati gejala yang ditunjukkan (demam, batuk, lemas, sakit kepala, nyeri otot, nyeri tenggorokan, pilek/hidung tersumbat, anoreksia/mual/muntah, diare, atau penurunan kesadaran, anosmia, ageusia).
+3.	Dibutuhkan pemeriksaan dalam laboratorium dengan rapid test ataupun Reverse Transcript – Polymerase Chain Reaction (RT-PCR) dengan RT-PCR yang paling disarankan.
+4.	Pemeriksaan tambahan dengan radiologi melalui foto toraks (rontgen) atau Computerized Tomography Scan (CT Scan). Rontgen dilakukan saat berada pada stase awal dan jika ditemuka kelainan yang mengarah pada COVID-19, dokter radiologi akan memberikan diagnosis pneumonia bilateral. Pemeriksaan CT Scan diperlukan jika foto toraks belum memadahi.
+5.	Melakukan pemeriksaan darah perifer untuk memantau adanya gejala klinis lainnya.
+
+Beberapa klinisi berpendapat bahwa tes laboratorium (RT-PCR) sudah cukup untuk menentukan apakah seorang pasien menderita COVID-19 atau tidak. Namun, sensitivitas RT-PCR dalam menemukan rantai virus COVID-19 adalah 60%-80% dan baru akan meningkat sampai 90% jika dilakukan dua kali. Untuk itu, disarankan pemeriksaan radiologi yang dapat meningkatkan keberhasilan diagnosis dari pasien COVID-19. Hal tersebut didukung Lee (2020) karena pemeriksaan CT Scan dapat meningkatkan keberhasilan diagnosis COVID-19 sehingga dibutuhkan sebagai pendamping RT-PCR yang memiliki false negative.
+
+Pemeriksaan untuk pneumonia pun tidak begitu jauh berbeda dengan pemeriksaan COVID-19 karena pada dasarnya COVID-19 merupakan pneumonia yang disebabkan oleh virus (viral pneumonia). Pneumonia biasanya disertai gejala batuk, perubahan dahak, demam tinggi, adanya suara napas bronkial, dan leukosit bertambah, tidak jauh berbeda dengan gejala COVID-19. Pemeriksaan radiologi untuk pneumonia lebih mudah karena sifatnya yang tipik, yaitu memiliki tipe atau pola gambar yang sama dalam hasil radiologi, terutama pneumonia yang disebabkan bakteri seperti Streptococcus pneumoniae, Pseudomonas aeruginosa, Mycoplasma pneumoniae. Oleh karena itu, foto toraks menjadi pendukung paling utama dalam tatalaksananya lalu pemeriksaan laboratorium. 
+
+Lama pembacaan CT Scan ataupun foto toraks oleh dokter spesialis radiologi dapat beragam. Jika tipik, pembacaannya dapat dalam hitungan jam, jika atipik (tidak berpola) dan dicurigai adanya kelainan klinis berat, dapat dalam hitungan hari. Pembacaan yang cepat juga dilakukan dalam kasus emergensi. Saat terjadi pandemi, dokter radiologi dipaksa untuk bekerja cepat dalam menentukan diagnosis pasien. Hasil radiologi pasien COVID-19 dalam inkubasi awal (0-2 hari) tidak terlalu tampak kelainan klinisnya, sehingga diperlukan pemeriksaan foto toraks atau CT Scan yang berulang untuk mengobservasi lebih lanjut. Hal tersebut juga dilakukan dalam menentukan apakah pasien sudah bebas dari COVID-19 atau tidak karena virus masih dapat ditemukan dalam hasil radiologi setelah gejala pasien menurun. Namun, pemeriksaan radiologi seharusnya tidak dilakukan berulang karena paparan radiasi dari sinar X dapat mengganggu sel tubuh dan memakan biaya yang tidak murah juga.
+
+Uraian di atas menjadi sebuah dasar untuk mengembangkan Model Pendeteksi Penyakit dengan Pendekatan Convolution Neural Network (CNN). Hasil radiologi yang dapat diolah oleh model ini adalah hasil CT Scan. CT Scan dapat menangkap cahaya per 0,5-1 milimeter tebal tubuh. Satu kali CT Scan pada pasien dapat menangkap puluhan hingga ratusan gambar (slice) tubuh dari berbagai potongan, aksial dan sagital. Tangkapan gambar (slice) CT Scan yang banyak dapat membantu Model dalam mempelajari pola, semakin banyak data yang digunakan, semakin baik hasil pembelajarannya, sehingga pengelompokkannya dapat lebih akurat. 
+
+Jika dalam proses kerja di rumah sakit, hasil tangkapan CT Scan pasien tersebut akan diolah oleh radiografer terlebih dahulu sebelum disampaikan kepada dokter radiologi. Dokter radiologi akan mengamati slice demi slice untuk mengamati adanya kelainan pada organ, mengatur gelap terangnya, menentukan potongan mana yang akan dibaca, terutama rongga dada untuk menentukan pneumonia. Hasil radiologi yang dicetak biasanya adalah slicing yang dapat menunjukkan kelainan klinis lebih jelas. Model Pendeteksi Penyakit dengan Pendekatan Convolution Neural Network (CNN) dapat membantu untuk mengonfirmasi diagnosis tersebut dan juga membantu dalam membaca cepat hasil slice tersebut. 
+
+
+## Tujuan dan Manfaat
+
+Model Pendeteksi Penyakit dengan Pendekatan Convolution Neural Network (CNN) bertujuan untuk membantu pembaca hasil CT Scan dalam mengonfirmasi diagnosis yang dilakukan terhadap hasil pasien, bukan untuk menggantikan dokter dalam pembacaan CT Scan. Model ini membaca gambar per gambar dan mengelompokkannya berdasarkan pola yang sudah dipelajari (deep learning), dalam hal ini dikelompokkan apakah termasuk normal, pneumonia, atau COVID-19. Hal tersebut menuntun pada tujuan lain, yaitu untuk mengefisienkan waktu tenaga kesehatan dalam melakukan diagnosis penyakit agar pemilihan prosedur penanganan dapat tepat dan cepat, sehingga persentase kesembuhan pasien meningkat.
+
+Manfaat dari Model Pendeteksi Penyakit dengan Pendekatan Convolution Neural Network (CNN) adalah dapat menjadi sebuah inovasi baru dan kreatif bagi pemerintah Indonesia dalam upaya pemulihan pandemi COVID-19. Tenaga kesehatan dapat tetap melakukan protokol kesehatan dengan menjaga jarak dan membatasi mobilitas karena model ini dapat diakses dengan perangkat elektronik, sehingga risiko tenaga kesehatan terpapar virus berkurang.
+
+
+## Batasan
+
+Batasan Model Pendeteksi Penyakit dengan Pendekatan Convolution Neural Network (CNN) adalah model ini hanya mengategorikan hasil CT Scan ke dalam kategori penyakit pneumonia, COVID-19, dan tampak paru normal saja. Penggunaan CNN yang diprogramkan hanya mempelajari pola dari ketiga penyakit tersebut sehingga belum dapat mendeteksi kelainan klinis lain. Namun, model dapat dikembangkan agar dapat mempelajari data kelainan klinis lain untuk menambah kategori penyakit yang dapat dideteksi.
+
+
+## Metodologi Pengembangan
+Penelitian yang telah dilakukan berkaitan dengan Computer Vision yang memanfaatkan metode Pembelajaran Mendalam (Deep Learning). Computer Vision adalah salah satu bidang yang cukup populer dalam model kecerdasan buatan (Artificial Intelligence) karena memiliki manfaat dalam banyak bidang, salah satunya yang kami terapkan pada bidang kesehatan. Cara kerja Computer Vision meniru penglihatan manusia yaitu dengan membangun metode untuk pembentukan gambar (sistem sensorik manusia) dan persepsi mesin (sistem kognitif manusia). Sistem sensorik ini dengan melibatkan sensor seperti kamera, drone, radar dan sebagainya, kemudian sistem kognitif manusia  dengan menggunakan Machine Learning. Kami memilih menggunakan metode Deep Learning karena sudah terbukti berdasarkan berbagai riset cocok untuk mengolah data bukan tabular seperti data gambar. Dengan demikian, kasus yang coba kami selesaikan adalah klasifikasi gambar (Image Classification).  
+
+Pada penelitian ini kami melakukan enam tahapan dalam menghasilkan model yaitu persiapan dataset, eksplorasi dataset, data preprocessing, training, validation dan testing awal. Pada tahapan pertama dilakukan proses pengambilan dataset dari platform Kaggle yang berjudul Large COVID-19 CT Scan Slice Dataset, dengan tautan berikut Large COVID-19 CT scan slice dataset | Kaggle. Dataset ini dipilih karena memiliki kredibilitas yang tinggi, terlihat mulai dari akun yang membagikan dataset adalah Maeda Maftouni, seorang Ph.D candidates di Virgin Tech. Kemudian dataset ini memiliki informasi yang sangat jelas seperti penjelasan isi dataset dan sumber perolehan dataset yang berasal dari 7 dataset publik yang semuanya memiliki sitasi yang jelas. Selain itu, kami menyadari keterbatasan dataset dalam jumlah besar yang kredibel, akuntabel dan mudah diakses di Indonesia. Melalui pertimbangan keakuratan dan aksesibilitas kami memutuskan menggunakan dataset dari Kaggle dalam membangun model Deep Learning. Pada dataset ini terdiri dari 7,593 gambar Covid-19 dari 466 pasien, 6,893 gambar normal dari 604 pasien dan 2,618 gambar CAP dari 60 pasien. Pada penelitian ini kami tidak menggunakan keseluruhan dataset karena keterbatasan komputasi yang dimiliki, seperti yang diketahui dalam proses training model data gambar membutuhkan prosesor dan GPU mumpuni sehingga kami lebih berusaha mengoptimalkan komputasi yang dimiliki. Kemudian disebabkan kami rasa sangat cukup 1600 data atau 4800 data secara total dalam pelatihan model untuk menghasilkan model yang baik, hal ini didasarkan pada pengalaman kami sebelumnya dalam membagun model data gambar yang hanya menggunakan total 251 data dan sudah dapat menghasilkan model yang baik. Oleh karena itu, kami berusaha menyelaraskan realitas komputasi dan mempertimbangakan kualitas model sehingga diputuskan tidak menggunakan keseluruhan data. Namun, kami menyadari jumlah data yang besar dan berkualitas akan memberikan hasil model yang lebih baik sehingga kami ingin terus meningkatkan kuantitas data pada proses pengembangan lebih lanjut. Pada keseluruhan proses pembangunan model ini, kami menggunakan sebanyak 2100 data untuk masing-masing kategori. Kategori atau disebut kelas ini terdiri dari Covid-19, Normal dan CAP. Setiap kategori ini terbagi lagi menjadi 1.600 data untuk training, 400 data untuk validasi dan 100 data untuk testing awal.
+
+**Contoh Dataset**
+
+![Data](Contoh_dataset.png)
+
+
+## Kesimpulan
+
+**Gambaran Hasil Uji Coba Prediksi :**
+
+### 1. Label Community-Acquired Pneumonia (CAP)
+![CAP](asset\Label_CAP.png)
+
+### 2. Label Covid-19
+![CAP](asset\Label_Covid-19.png)
+
+### 3. Label Normal
+![CAP](asset\Label_Normal.png)
+
+
+Proyek ini dibuat melalui berbagai tahapan mulai mempersiapkan dataset hingga mencoba memprediksi gambar. Selain itu, proyek ini menggunakan *Transfer Learning* untuk meningkatkan performa model *Machine Learning*, hal ini dapat dilihat dengan membandingkan plot performa sebelum dan sesudah *Transfer Learning*. Pada tahap terakhir kita juga mencoba memprediksi tiga gambar dari setiap kelas yang akan diprediksi. Secara keseluruhan model yang dihasilkan sudah baik, seperti pada hasil akhir akurasi latihan dan validasi yang masing-masing 95%+ dan 92%+ meskipun terdapat perbedaan akurasi latihan dan validasi. Jadi, melalui model ini dapat menjadi tambahan informasi selain pemeriksaan langsung di laboratorium sehingga dapat menambah efektivitas dan efisiensi pendeteksian penyakit pasien. Namun, tetap mesti dilakukan pemantauan berkala dan pengembangan lebih lanjut karena model tidak bisa benar 100%. 
+

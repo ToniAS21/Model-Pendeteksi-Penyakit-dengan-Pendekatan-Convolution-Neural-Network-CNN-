@@ -57,7 +57,7 @@ Due to computational limitations, we did not use the entire dataset. Training im
 
 ## Conclusion
 
-**Gambaran Hasil Uji Coba Prediksi :**
+**Overview of Prediction Trial Results :**
 
 ### 1. Label Community-Acquired Pneumonia (CAP)
 ![CAP](asset/Label_CAP.png)

@@ -6,16 +6,11 @@ On December 31, 2019, China reported cases of pneumonia caused by a mysterious v
 In Indonesia, since the first case was publicly announced on March 2, 2020, various policies have been implemented. Large-Scale Social Restrictions (PSBB) and the New Normal movement were enacted to prevent and control the spread of COVID-19 while restoring aspects of daily life that had been disrupted. Public awareness campaigns emphasized sanitation protocols: maintaining physical distance, wearing masks, washing hands, avoiding crowds, and limiting mobility. Vaccination efforts were also developed, promoted, and mandated to reduce COVID-19 mortality rates. However, these measures did not immediately lead to a drastic decline in deaths. Due to the virus's ease of transmission—through airborne droplets and contaminated surfaces—SARS-CoV-2 spread rapidly, with an incubation period of just 1-14 days.
 
 To determine whether an individual is infected with COVID-19, the following assessments are conducted:
-
-Identifying recent contact with confirmed COVID-19 patients.
-
-Observing symptoms such as fever, cough, fatigue, headache, muscle pain, sore throat, nasal congestion, loss of appetite, nausea/vomiting, diarrhea, altered consciousness, anosmia, and ageusia.
-
-Conducting laboratory tests, including rapid tests and Reverse Transcript – Polymerase Chain Reaction (RT-PCR), with RT-PCR being the most recommended.
-
-Performing radiological examinations through chest X-rays or Computerized Tomography (CT) scans. X-rays are used in the early stages, and if abnormalities suggestive of COVID-19 are detected, radiologists diagnose bilateral pneumonia. CT scans are performed if X-ray results are inconclusive.
-
-Conducting peripheral blood tests to monitor other clinical symptoms.
+1. Identifying recent contact with confirmed COVID-19 patients.
+2. Observing symptoms such as fever, cough, fatigue, headache, muscle pain, sore throat, nasal congestion, loss of appetite, nausea/vomiting, diarrhea, altered consciousness, anosmia, and ageusia.
+3. Conducting laboratory tests, including rapid tests and Reverse Transcript – Polymerase Chain Reaction (RT-PCR), with RT-PCR being the most recommended.
+4. Performing radiological examinations through chest X-rays or Computerized Tomography (CT) scans. X-rays are used in the early stages, and if abnormalities suggestive of COVID-19 are detected, radiologists diagnose bilateral pneumonia. CT scans are performed if X-ray results are inconclusive.
+5. Conducting peripheral blood tests to monitor other clinical symptoms.
 
 Some clinicians argue that laboratory tests (RT-PCR) are sufficient to determine a COVID-19 diagnosis. However, RT-PCR's sensitivity in detecting the COVID-19 virus ranges from 60%-80%, increasing to 90% only after two tests. Thus, radiological examinations are recommended to enhance diagnostic accuracy. Lee (2020) supports this, stating that CT scans improve COVID-19 diagnosis, making them essential alongside RT-PCR, which has a false-negative rate.
 
